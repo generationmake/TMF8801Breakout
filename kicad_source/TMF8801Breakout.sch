@@ -5,7 +5,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "TMF8801Breakout"
-Date "2020-11-24"
+Date "2020-11-25"
 Rev "0.1"
 Comp "genrationmake"
 Comment1 ""
@@ -353,7 +353,7 @@ U 1 1 5FBD7BD8
 P 750 6950
 F 0 "L1" H 978 7056 60  0000 L CNN
 F 1 "Label" H 978 6950 60  0000 L CNN
-F 2 "labels:generationmake_small_solder" H 978 6844 60  0000 L CNN
+F 2 "labels:generationmake_small_silk" H 978 6844 60  0000 L CNN
 F 3 "" H 750 6950 60  0000 C CNN
 	1    750  6950
 	1    0    0    -1  
@@ -363,7 +363,7 @@ L voltage-regulators:TPS736XX U1
 U 1 1 5FBE1A9A
 P 2350 5750
 F 0 "U1" H 2350 6137 60  0000 C CNN
-F 1 "TPS736XX" H 2350 6031 60  0000 C CNN
+F 1 "MIC5225-3.3" H 2350 6031 60  0000 C CNN
 F 2 "SOT_TO:SOT-23-5" H 2350 5900 60  0001 C CNN
 F 3 "" H 2350 5750 60  0000 C CNN
 	1    2350 5750
@@ -507,8 +507,6 @@ Wire Wire Line
 Connection ~ 5200 2200
 Wire Wire Line
 	5200 2200 5600 2200
-Text Notes 1950 6300 0    50   ~ 0
-also use MIC5225-3.3
 $Comp
 L devices:Q_NMOS_GSD Q1
 U 1 1 5FC03554
@@ -757,7 +755,7 @@ U 1 1 5FC4AA88
 P 9000 4650
 F 0 "CN2" H 9078 4736 50  0000 L CNN
 F 1 "CONN_01X07" H 9078 4645 50  0000 L CNN
-F 2 "pin_headers:Pin_Header_Straight_1x07" H 9078 4554 50  0000 L CNN
+F 2 "pin_headers:Pin_Header_Straight_1x07" H 9078 4554 50  0001 L CNN
 F 3 "" H 9000 4650 50  0000 C CNN
 	1    9000 4650
 	1    0    0    -1  
@@ -886,4 +884,59 @@ Wire Wire Line
 	2750 3400 2750 3350
 Wire Wire Line
 	2750 2500 2750 2550
+$Comp
+L mechanical-connectors:CONN_01X05 CN3
+U 1 1 5FBEB318
+P 9700 2850
+F 0 "CN3" H 9778 2891 50  0000 L CNN
+F 1 "SM05B-SRSS-TB" H 9778 2800 50  0000 L CNN
+F 2 "Connector_JST:JST_SH_SM05B-SRSS-TB_1x05-1MP_P1.00mm_Horizontal" H 9700 2850 50  0001 C CNN
+F 3 "" H 9700 2850 50  0000 C CNN
+	1    9700 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power-supply:VCC #PWR030
+U 1 1 5FBED847
+P 9400 2550
+F 0 "#PWR030" H 9400 2400 50  0001 C CNN
+F 1 "VCC" H 9417 2723 50  0000 C CNN
+F 2 "" H 9400 2550 50  0000 C CNN
+F 3 "" H 9400 2550 50  0000 C CNN
+	1    9400 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power-supply:GND #PWR031
+U 1 1 5FBEF9B4
+P 9400 3150
+F 0 "#PWR031" H 9400 2900 50  0001 C CNN
+F 1 "GND" H 9405 2977 50  0000 C CNN
+F 2 "" H 9400 3150 50  0000 C CNN
+F 3 "" H 9400 3150 50  0000 C CNN
+	1    9400 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 3050 9400 3050
+Wire Wire Line
+	9400 3050 9400 3150
+Wire Wire Line
+	8800 2950 9500 2950
+Wire Wire Line
+	8800 2850 9500 2850
+Wire Wire Line
+	8800 2750 9500 2750
+Wire Wire Line
+	9400 2550 9400 2650
+Wire Wire Line
+	9400 2650 9500 2650
+Text Label 8850 2950 0    50   ~ 0
+I2C_SDA_5V
+Text Label 8850 2850 0    50   ~ 0
+I2C_SCL_5V
+Text Label 8850 2750 0    50   ~ 0
+EN_5V
+Text Notes 8900 2300 0    50   ~ 0
+Arduino ESLOV connector
 $EndSCHEMATC
